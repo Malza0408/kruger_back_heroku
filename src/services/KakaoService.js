@@ -1,4 +1,4 @@
-import { User } from '../db';
+import { User } from '../db/index.js';
 import jwt from 'jsonwebtoken';
 import axios from 'axios';
 
