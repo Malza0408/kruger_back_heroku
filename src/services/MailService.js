@@ -1,5 +1,6 @@
 import nodemailer from 'nodemailer';
-import 'dotenv/config';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const adminEmail = process.env.ADMIN_EMAIL;
 const accessKey = process.env.ACCESS_KEY;
