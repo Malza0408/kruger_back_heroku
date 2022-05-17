@@ -1,15 +1,14 @@
 import cors from 'cors';
 import express from 'express';
-import { userRouter } from './routers/userRouter';
-import { educationRouter } from './routers/educationRouter';
-import { awardRouter } from './routers/awardRouter';
-import { certificateRouter } from './routers/certificateRouter';
-import { projectRouter } from './routers/projectRouter';
-import { noteRouter } from './routers/noteRouter';
-import { errorMiddleware } from './middlewares/errorMiddleware';
-import { authRouter } from './routers/authRouter';
-import { recruitmentRouter } from './routers/recruitmentRouter';
-import path from 'path';
+import { userRouter } from './routers/userRouter.js';
+import { educationRouter } from './routers/educationRouter.js';
+import { awardRouter } from './routers/awardRouter.js';
+import { certificateRouter } from './routers/certificateRouter.js';
+import { projectRouter } from './routers/projectRouter.js';
+import { noteRouter } from './routers/noteRouter.js';
+import { errorMiddleware } from './middlewares/errorMiddleware.js';
+import { authRouter } from './routers/authRouter.js';
+import { recruitmentRouter } from './routers/recruitmentRouter.js';
 const app = express();
 
 // CORS 에러 방지
@@ -33,8 +32,3 @@ app.use(recruitmentRouter);
 
 // 순서 중요 (router 에서 next() 시 아래의 에러 핸들링  middleware로 전달됨)
 app.use(errorMiddleware);
-
-// app.use(express.static(path.join(__dirname, '../front', 'build')));
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname, '../front', 'build', 'index.html'));
-// });

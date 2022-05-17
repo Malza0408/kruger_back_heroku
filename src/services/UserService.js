@@ -2,7 +2,7 @@ import { User } from '../db'; // from을 폴더(db) 로 설정 시, 디폴트로
 import bcrypt from 'bcrypt';
 import { v4 as uuidv4 } from 'uuid';
 import jwt from 'jsonwebtoken';
-import { sendMail } from './MailService';
+import { sendMail } from './MailService.js';
 
 class UserService {
     // 회원가입하기

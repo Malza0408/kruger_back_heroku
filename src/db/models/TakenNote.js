@@ -1,4 +1,4 @@
-import { TakenNoteModel } from '../schemas/takenNote';
+import { TakenNoteModel } from '../schemas/takenNote.js';
 
 class TakenNote {
     // 받은 쪽지를 생성함

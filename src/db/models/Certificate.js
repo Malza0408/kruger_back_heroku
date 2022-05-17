@@ -1,4 +1,4 @@
-import { CertificateModel } from '../schemas/certificate';
+import { CertificateModel } from '../schemas/certificate.js';
 
 class Certificate {
     // 새로운 자격증 요소 작성, 자격증과 관련된 내용 필요

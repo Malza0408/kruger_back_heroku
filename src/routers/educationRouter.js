@@ -1,8 +1,8 @@
 import is from '@sindresorhus/is';
 import { Router } from 'express';
-import { login_required } from '../middlewares/login_required';
-import { educationUpdateMiddleware } from '../middlewares/educationUpdateMiddleware';
-import { EducationService } from '../services/EducationService';
+import { login_required } from '../middlewares/login_required.js';
+import { educationUpdateMiddleware } from '../middlewares/educationUpdateMiddleware.js';
+import { EducationService } from '../services/EducationService.js';
 
 const educationRouter = Router();
 

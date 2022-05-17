@@ -1,4 +1,4 @@
-import { AwardModel } from '../schemas/award';
+import { AwardModel } from '../schemas/award.js';
 
 class Award {
     // 새로운 수상 요소 작성, 수상과 관련된 내용 필요

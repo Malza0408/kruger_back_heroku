@@ -1,7 +1,7 @@
 import is from '@sindresorhus/is';
 import { Router } from 'express';
-import { login_required } from '../middlewares/login_required';
-import { NoteService } from '../services/NoteService';
+import { login_required } from '../middlewares/login_required.js';
+import { NoteService } from '../services/NoteService.js';
 
 const noteRouter = Router();
 

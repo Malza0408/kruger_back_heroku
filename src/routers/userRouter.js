@@ -1,8 +1,8 @@
 import is from '@sindresorhus/is';
 import { Router } from 'express';
-import { login_required } from '../middlewares/login_required';
-import { userUpdateMiddleware } from '../middlewares/userUpdateMiddleware';
-import { UserService } from '../services/UserService';
+import { login_required } from '../middlewares/login_required.js';
+import { userUpdateMiddleware } from '../middlewares/userUpdateMiddleware.js';
+import { UserService } from '../services/UserService.js';
 
 const userRouter = Router();
 
@@ -60,7 +60,7 @@ userRouter.get(
             const currentUserInfo = await UserService.getUserInfo({
                 user_id
             });
-            console.log("user_id로 받아온 currentUserInfo : ", currentUserInfo);
+            console.log('user_id로 받아온 currentUserInfo : ', currentUserInfo);
             res.status(200).send(currentUserInfo);
         } catch (error) {
             next(error);

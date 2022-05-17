@@ -1,4 +1,4 @@
-import { RecruitmentModel } from '../schemas/recruitment';
+import { RecruitmentModel } from '../schemas/recruitment.js';
 
 class Recruitment {
     // 새로운 게시물 작성, 게시물과 관련된 내용 필요

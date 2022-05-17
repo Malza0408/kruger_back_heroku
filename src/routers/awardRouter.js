@@ -1,8 +1,8 @@
 import is from '@sindresorhus/is';
 import { Router } from 'express';
-import { login_required } from '../middlewares/login_required';
-import { profileUpdateMiddleware } from '../middlewares/profileUpdateMiddleware';
-import { AwardService } from '../services/AwardService';
+import { login_required } from '../middlewares/login_required.js';
+import { profileUpdateMiddleware } from '../middlewares/profileUpdateMiddleware.js';
+import { AwardService } from '../services/AwardService.js';
 
 const awardRouter = Router();
 

@@ -1,7 +1,5 @@
 import { Education } from '../db';
-import { User } from '../db';
 import { v4 as uuidv4 } from 'uuid';
-import { EducationModel } from '../db/schemas/education';
 
 class EducationService {
     // 학력 생성

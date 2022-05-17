@@ -1,10 +1,10 @@
 import is from '@sindresorhus/is';
 import { Router } from 'express';
-import { login_required } from '../middlewares/login_required';
-import { recruitmentUpdateMiddleware } from '../middlewares/recruitmentUpdateMiddleware';
-import { languageMiddleware } from '../middlewares/languageMiddleward';
-import { RecruitmentService } from '../services/RecruitmentService';
-import { NoteService } from '../services/NoteService';
+import { login_required } from '../middlewares/login_required.js';
+import { recruitmentUpdateMiddleware } from '../middlewares/recruitmentUpdateMiddleware.js';
+import { languageMiddleware } from '../middlewares/languageMiddleward.js';
+import { RecruitmentService } from '../services/RecruitmentService.js';
+import { NoteService } from '../services/NoteService.js';
 
 const recruitmentRouter = Router();
 

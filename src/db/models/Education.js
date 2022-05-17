@@ -1,4 +1,4 @@
-import { EducationModel } from '../schemas/education';
+import { EducationModel } from '../schemas/education.js';
 
 class Education {
     // 새로운 학력 요소 작성, 학력과 관련된 내용 필요

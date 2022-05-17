@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import { GithubService } from '../services/GithubService';
-import { GoogleService } from '../services/GoogleService';
-import { KakaoService } from '../services/KakaoService';
+import { GithubService } from '../services/GithubService.js';
+import { GoogleService } from '../services/GoogleService.js';
+import { KakaoService } from '../services/KakaoService.js';
 
 const authRouter = Router();
 

@@ -1,12 +1,12 @@
 import mongoose from 'mongoose';
-import { User } from './models/User';
-import { Education } from './models/Education';
-import { Award } from './models/Award';
-import { Certificate } from './models/Certificate';
-import { Project } from './models/Project';
-import { TakenNote } from './models/TakenNote';
-import { SentNote } from './models/SentNote';
-import { Recruitment } from './models/Recruitment';
+import { User } from './models/User.js';
+import { Education } from './models/Education.js';
+import { Award } from './models/Award.js';
+import { Certificate } from './models/Certificate.js';
+import { Project } from './models/Project.js';
+import { TakenNote } from './models/TakenNote.js';
+import { SentNote } from './models/SentNote.js';
+import { Recruitment } from './models/Recruitment.js';
 
 const DB_URL =
     process.env.MONGODB_URL ||

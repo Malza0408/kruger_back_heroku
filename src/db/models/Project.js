@@ -1,4 +1,4 @@
-import { ProjectModel } from '../schemas/project';
+import { ProjectModel } from '../schemas/project.js';
 
 class Project {
     // 새로운 프로젝트 요소 작성, 프로젝트와 관련된 내용 필요

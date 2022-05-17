@@ -1,4 +1,4 @@
-import { SentNoteModel } from '../schemas/sentNote';
+import { SentNoteModel } from '../schemas/sentNote.js';
 
 class SentNote {
     // 보낸 쪽지를 생성함
