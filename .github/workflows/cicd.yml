@@ -1,16 +1,24 @@
-name: Deploy kruger-back with github-actions/docker to Heroku
+name: Publish Docker image
+# workflow가 trigger될 이벤트를 명시한다. push하면 실행!
 on:
   push:
-    branches: main
+    branches: master
   pull_request:
-    branches: main
-
+    branches: master
+# workflow에서 실행할 job
 jobs:
   build-and-push-image:
+    # job이 돌아갈 환경을 명시한다.
     runs-on: ubuntu-latest
+    # 하나의 job에서 실행할 step 명시한다.
     steps:
       - name: Checkout repository
-      - uses: actions/checkout@v3
+        # uses는 다른 오픈소스 커뮤니티에 있는 actions를 가지고 와서 실행하라고 job에게 알려준다.
+        # checkout@v3는 레파지토리 환경을 runner로 복사한다.
+        uses: actions/checkout@v3
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
@@ -30,6 +38,7 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ghcr.io/${{ secrets.DOCKER_HUB_USERNAME }}/kruger-back:latest
+
   deploy:
     runs-on: ubuntu-latest
     steps:
