@@ -1,8 +1,9 @@
 name: Deploy kruger-back with github-actions/docker to Heroku
 on:
   push:
-    branches:
-      - main
+    branches: main
+  pullrequest:
+    branches: main
 
 jobs:
   build-and-push-image:
@@ -38,5 +39,5 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: 'git-cicd-kruger' #Must be unique in Heroku
           heroku_email: ${{secrets.HEROKU_EMAIL}}
-          env_file: ".env"
+          env_file: '.env'
           usedocker: true
