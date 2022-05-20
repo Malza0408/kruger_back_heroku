@@ -1,0 +1,42 @@
+name: Deploy kruger-back with github-actions/docker to Heroku
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+	build-and-push-image:
+    runs-on: ubuntu-latest
+		steps:
+      - name: Checkout repository
+      - uses: actions/checkout@v3
+			
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.TOKEN }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ghcr.io/${{ secrets.DOCKER_HUB_USERNAME }}/kruger-back:latest
+
+  deploy:
+    steps:
+      - uses: actions/checkout@v3
+      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: 'git-cicd-kruger' #Must be unique in Heroku
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
+					env_file: ".env"
+          usedocker: true
