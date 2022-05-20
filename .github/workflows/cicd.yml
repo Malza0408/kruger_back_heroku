@@ -2,7 +2,7 @@ name: Deploy kruger-back with github-actions/docker to Heroku
 on:
   push:
     branches: main
-  pullrequest:
+  pull_request:
     branches: main
 
 jobs:
