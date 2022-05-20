@@ -16,21 +16,18 @@ jobs:
         # uses는 다른 오픈소스 커뮤니티에 있는 actions를 가지고 와서 실행하라고 job에게 알려준다.
         # checkout@v3는 레파지토리 환경을 runner로 복사한다.
         uses: actions/checkout@v3
-
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
-
+      # Docker Buildx 설정을 위한 GitHub 작업이다.
       - name: Set up Docker Buildx
         id: buildx
         uses: docker/setup-buildx-action@v2
-
+      # Docker 레지스트리에 대해 로그인하기 위한 GitHub 작업이다.
       - name: Log in to the Container registry
         uses: docker/login-action@v2
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.TOKEN }}
-
+      # Buildx 로 Docker 이미지를 빌드하고 푸시하는 GitHub 작업이다.
       - name: Build and push Docker image
         uses: docker/build-push-action@v3
         with:
@@ -38,15 +35,15 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ghcr.io/${{ secrets.DOCKER_HUB_USERNAME }}/kruger-back:latest
-
+  # heroku 배포
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+      - uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: 'git-cicd-kruger' #Must be unique in Heroku
+          heroku_app_name: 'git-cicd-kruger'
           heroku_email: ${{secrets.HEROKU_EMAIL}}
           env_file: '.env'
           usedocker: true
