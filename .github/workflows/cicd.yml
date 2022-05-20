@@ -5,9 +5,9 @@ on:
       - main
 
 jobs:
-	build-and-push-image:
+  build-and-push-image:
     runs-on: ubuntu-latest
-		steps:
+    steps:
       - name: Checkout repository
       - uses: actions/checkout@v3
 			
@@ -29,8 +29,8 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ghcr.io/${{ secrets.DOCKER_HUB_USERNAME }}/kruger-back:latest
-
   deploy:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
@@ -38,5 +38,5 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: 'git-cicd-kruger' #Must be unique in Heroku
           heroku_email: ${{secrets.HEROKU_EMAIL}}
-					env_file: ".env"
+          env_file: ".env"
           usedocker: true
