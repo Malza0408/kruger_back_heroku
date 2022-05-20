@@ -2,9 +2,9 @@ name: Publish Docker image
 # workflow가 trigger될 이벤트를 명시한다. push하면 실행!
 on:
   push:
-    branches: master
+    branches: main
   pull_request:
-    branches: master
+    branches: main
 # workflow에서 실행할 job
 jobs:
   build-and-push-image:
